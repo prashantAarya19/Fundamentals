@@ -20,8 +20,8 @@ public class Pattern14 {
         while(row <= input) {
             int counter = input - row;
             printSpace(counter);
-            int increasingNumber = printIncreasingNumber(row);
-            printDecreasingNumber(increasingNumber);
+            printIncreasingNumber(row);
+            printDecreasingNumber(row);
             System.out.println();
             ++row;
         }
@@ -36,21 +36,19 @@ public class Pattern14 {
         }
     }
 
-    public static int printIncreasingNumber(int input) {
+    public static void printIncreasingNumber(int input) {
         int incrementCounter = 1;
 
         while(incrementCounter <= input) {
             System.out.print(incrementCounter+" ");
             ++incrementCounter;
         }
-
-        return --incrementCounter;
     }
 
     public static void printDecreasingNumber(int input) {
         int decrementCounter = input - 1;
 
-        while(decrementCounter >= 1) {
+        while(decrementCounter > 0) {
             System.out.print(decrementCounter+" ");
             --decrementCounter;
         }
