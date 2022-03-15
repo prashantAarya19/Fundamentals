@@ -9,6 +9,8 @@ package patterns;
 public class Pattern15 {
     public static void main(String[] args) {
         printPattern(5);
+
+        System.out.println(5&3);
     }
 
     public static void printPattern(int input) {
