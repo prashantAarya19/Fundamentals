@@ -7,7 +7,7 @@ public class ReadAnything <T>{
         this.t = t;
     }
 
-    public void printAnythig() {
+    public void printAnythnig() {
         System.out.println(t);
     }
 }

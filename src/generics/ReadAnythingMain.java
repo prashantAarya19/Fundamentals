@@ -3,9 +3,9 @@ package generics;
 public class ReadAnythingMain {
     public static void main(String[] args) {
         ReadAnything<Integer> read = new ReadAnything<>(5);
-        read.printAnythig();
+        read.printAnythnig();
         ReadAnything<?> readString = new ReadAnything<>("hello");
-        readString.printAnythig();
+        readString.printAnythnig();
 
         m("Generic method");
 
