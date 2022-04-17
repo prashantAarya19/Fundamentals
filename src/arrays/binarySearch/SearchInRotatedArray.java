@@ -58,68 +58,59 @@ Sample Output 2:
  */
 public class SearchInRotatedArray {
 
-    public static int findPivot(List<Integer> arr, int size) {
-        int start = 0;
-        int end = size - 1;
-        int mid = start + (end - start)/2;
+    public static int findPosition(ArrayList<Integer> arr, int n, int k) {
+        int pivot = findPivot(arr, n);
 
-        while(start < end) {
-            if(arr.get(mid) >= arr.get(start)) {
-                start = mid + 1;
-            } else {
-                end = mid;
-            }
+        if(k == arr.get(pivot)) {
+            return pivot;
+        } else if(pivot == 0)  {
+            return binarySearch(arr, 0, n-1, k);
+        }else if(k >= arr.get(pivot) && k <= arr.get(n-1)) {
+            return binarySearch(arr, pivot, n-1, k);
+        } else {
+            return binarySearch(arr, 0, pivot-1, k);
         }
-        return mid;
     }
 
-    public static int binarySearch(List<Integer> arr, int start, int end, int key) {
-        int mid = start + (end - start)/2;
+    public static int findPivot(ArrayList<Integer> arr, int n) {
+        int s = 0;
+        int e = n - 1;
+        int mid = s+(e-s)/2;
 
-        while(start <= end) {
-            if(arr.get(mid) == key) {
+        if(arr.get(s) < arr.get(e)) {
+            return s;
+        }
+        while(s < e) {
+            if(arr.get(mid) >= arr.get(0)) {
+                s = mid + 1;
+            } else {
+                e = mid;
+            }
+            mid = s+(e-s)/2;
+        }
+        return s;
+    }
+
+    public static int binarySearch(ArrayList<Integer> arr, int s, int e, int k) {
+        int mid = s+(e-s)/2;
+        while(s <= e) {
+            if(arr.get(mid) == k) {
                 return mid;
+            } else if(arr.get(mid) > k) {
+                e = mid-1;
+            }else {
+                s = mid+1;
             }
-            if(arr.get(mid) >  key) {
-                start = mid + 1;
-            }
-
-            if(arr.get(mid) < key) {
-                end = mid - 1;
-            }
-
-            mid = start + (end - start)/2;
+            mid = s + (e-s)/2;
         }
         return -1;
     }
-
-    public static int findNumber(List<Integer> arr, int size, int key) {
-        int pivot = findPivot(arr, size);
-        int start, end;
-        if(arr.get(pivot) == key) {
-            return pivot;
-        } else if(arr.get(pivot) < key) {
-            start = pivot + 1;
-            end = size - 1;
-        } else {
-            end = pivot - 1;
-            start = 0;
-        }
-        return binarySearch(arr, start, end, key);
-    }
-
-
-
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(8);
-        arr.add(9);
-        arr.add(4);
+        arr.add(2);
+        arr.add(3);
         arr.add(5);
-       // arr.add(4);
-        // 12, 15, 18, 2, 4
-        // 8 9 4 5
-                //(ArrayList<Integer>) Arrays.asList(2, 3, 5, 8);
-
+        arr.add(8);
+        System.out.println(findPosition(arr, 4, 2));
     }
 }

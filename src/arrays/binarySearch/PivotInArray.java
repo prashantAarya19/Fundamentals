@@ -6,6 +6,9 @@ public class PivotInArray {
         int start = 0;
         int end = length - 1;
         int mid = start + (end - start)/2;
+        if(arr[start] < arr[end]) {
+            return start;
+        }
         while(start < end) {
             if(arr[mid] >= arr[0]) {
                 start = mid + 1;
@@ -21,7 +24,7 @@ public class PivotInArray {
        // int[] arr = {4, 6, 8, 9, 2};
        // int[] arr = {8, 9, 10, 11, 2, 3, 5, 6};
         //int[] arr = {6, 7, 9, 1, 2, 3};
-        int[] arr = {8, 10, 17, 1, 3};
-        System.out.println(pivotInArray(arr, 5));
+        int[] arr = {2, 3, 5, 8};
+        System.out.println(pivotInArray(arr, 4));
     }
 }
