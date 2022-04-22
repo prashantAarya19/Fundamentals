@@ -47,8 +47,40 @@ public class BinaryTree {
         }
     }
 
+    public static void inorderTraversal(Node<Integer> rootNode) {
+        if(rootNode == null) {
+            return;
+        }
+
+        inorderTraversal(rootNode.left); // L
+        System.out.print(rootNode.data +" "); // N
+        inorderTraversal(rootNode.right); // R
+    }
+
+    public static void preOrderTraversal(Node<Integer> rootNode) {
+        if(rootNode == null) return;
+
+        System.out.print(rootNode.data+" ");
+        preOrderTraversal(rootNode.left);
+        preOrderTraversal(rootNode.right);
+    }
+
+    public static void postOrderTraversal(Node<Integer> rootNode) {
+        if(rootNode == null) return;
+
+        postOrderTraversal(rootNode.left);
+        postOrderTraversal(rootNode.right);
+        System.out.print(rootNode.data+" ");
+    }
+
     public static void main(String[] args) {
         Node<Integer> root = buildTree(null);
-        levelOrderTraversal(root);
+        //levelOrderTraversal(root);
+        System.out.println("***Inorder traversal [LNR]***");
+        inorderTraversal(root);
+        System.out.println("\n ***Preorder traversal [NLR]***");
+        preOrderTraversal(root);
+        System.out.println("\n ***Postorder traversal [LRN]***");
+        postOrderTraversal(root);
     }
 }
