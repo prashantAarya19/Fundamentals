@@ -27,9 +27,9 @@ public class BinaryTree{
         queue.add(root);
 
         while(!queue.isEmpty()) {
-            Node<Integer> temp = queue.peek();
+            Node<Integer> temp = queue.remove();
             System.out.print(temp.data +" ");
-            queue.remove();
+          //  queue.remove();
 
             if(null != temp.left) {
                 queue.add(temp.left);
