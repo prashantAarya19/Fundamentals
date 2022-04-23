@@ -6,20 +6,49 @@ import java.util.Scanner;
 
 public class BinaryTree {
 
-    public static Node<Integer> buildTree(Node<Integer> root) {
+    public static Node<Integer> buildTreeFromLevelOrderTraversal() {
+        Scanner sc = new Scanner(System.in);
+        Queue<Node<Integer>> queue = new LinkedList<>();
+        System.out.println("Enter the data for root: ");
+        int data = sc.nextInt();
+        Node<Integer> rootNode = new Node<>(data);
+        queue.add(rootNode);
+
+        while (!queue.isEmpty()) {
+            Node<Integer> temp = queue.remove();
+            System.out.println("Enter the data for left : ");
+            int left = sc.nextInt();
+            if(-1 != left) {
+                temp.left = new Node<>(left);
+                queue.add(temp.left);
+            }
+
+            System.out.println("Enter the data for right : ");
+            int right = sc.nextInt();
+            if(-1 != right) {
+                temp.right = new Node<>(right);
+                queue.add(temp.right);
+            }
+        }
+        return rootNode;
+
+
+    }
+
+    public static Node<Integer> buildTree() {
         System.out.println("Enter the data::");
         Scanner sc = new Scanner(System.in);
         int data = sc.nextInt();
-        root = new Node<>(data);
+        Node<Integer> root = new Node<>(data);
 
         if (data == -1) {
             return null;
         }
 
         System.out.println("Enter data for inserting in left of: " + data);
-        root.left = buildTree(root.left);
+        root.left = buildTree();
         System.out.println("Enter data for inserting in right: " + data);
-        root.right = buildTree(root.right);
+        root.right = buildTree();
         return root;
     }
 
@@ -32,6 +61,7 @@ public class BinaryTree {
         while (!queue.isEmpty()) {
             Node<Integer> temp = queue.remove();
             if (temp == null) {
+                // for formatting to a tree
                 System.out.println();
                 if (!queue.isEmpty())
                     queue.add(null);
@@ -74,7 +104,7 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        Node<Integer> root = buildTree(null);
+        Node<Integer> root = buildTreeFromLevelOrderTraversal();
         //levelOrderTraversal(root);
         System.out.println("***Inorder traversal [LNR]***");
         inorderTraversal(root);
