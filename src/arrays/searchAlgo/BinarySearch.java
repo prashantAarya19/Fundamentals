@@ -23,11 +23,11 @@ public class BinarySearch {
 
             mid = start + (end-start)/2;
         }
-        return -1;
+        return mid;
     }
 
     public static void main(String[] args) {
         int[] arr = {2, 4, 6, 8, 25, 27, 28};
-        System.out.println(binarySearch(arr, 7, 27));
+        System.out.println(binarySearch(arr, 7, 39));
     }
 }
