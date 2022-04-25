@@ -39,7 +39,6 @@ public class BinarySearchTree {
 
         while(!queue.isEmpty()) {
             Node<Integer> tempNode = queue.remove();
-
             if(tempNode == null) {
                 System.out.println();
                 if(!queue.isEmpty()) {
@@ -100,11 +99,11 @@ public class BinarySearchTree {
                 Node<Integer> temp = root.left;
                 root.left = null;
                 return temp;
-            }else if(null == root.left) {
+            }else if(null == root.left) { // right child
                 Node<Integer> temp = root.right;
                 root.right = null;
                 return temp;
-            } else {
+            } else { // if both the children are present
                 int min = minValue(root.right);
                 root.data = min;
                 root.right = deleteNode(root.right, min);
@@ -126,7 +125,7 @@ public class BinarySearchTree {
         // 1, 3, 5, 6, 4
         System.out.println("\n***Level order traversal");
         levelOrderTraversal(binarySearchTree);
-        deleteNode(binarySearchTree, 4);
+        deleteNode(binarySearchTree, 8);
         System.out.println("\n***after deletion");
         levelOrderTraversal(binarySearchTree);
     }
