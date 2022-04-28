@@ -69,10 +69,10 @@ public class FindDuplicateElement {
         return resultArray;
     }
     public static void main(String[] args) {
-        int[] arr = {3, 2, 2, 1};
+        int[] arr = {2, 1, 2, 1};
 
-        System.out.println(findDuplicatesUsingFloydAlgo(arr));
-        //Arrays.stream(findAllDuplicates(arr)).forEach(e -> System.out.print(e+" "));
+        findDuplicatesUsingFloydAlgo(arr);
+        Arrays.stream(findAllDuplicates(arr)).forEach(e -> System.out.print(e+" "));
     }
 
 }
