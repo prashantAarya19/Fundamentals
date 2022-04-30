@@ -14,10 +14,12 @@ public class SelectionSort {
 
     /**Worst complexity = O(n^2)**/
     public static void sortArray(int[] arr) {
-        for(int i = 0; i < arr.length; i++) {
+        for(int i = 0; i < arr.length-1; i++) {
+            int temp = i;
             for(int j = i+1; j < arr.length; j++) {
-                if(arr[i] > arr[j]) swap(arr, i, j);
+                if(arr[temp] > arr[j]) temp = j;
             }
+            swap(arr, temp, i);
         }
     }
 
