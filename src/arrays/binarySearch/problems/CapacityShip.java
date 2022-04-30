@@ -1,5 +1,8 @@
 package arrays.binarySearch.problems;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CapacityShip {
 
         public static boolean isPossibleWeight(int[] weights, int days, int midWeight) {
