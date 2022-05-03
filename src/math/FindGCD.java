@@ -2,6 +2,7 @@ package math;
 
 public class FindGCD {
 
+    // Euclid's gcd algorithm
     public static int findGCD(int a, int b) {
 
         if(a == 0) {
