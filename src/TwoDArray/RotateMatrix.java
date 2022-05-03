@@ -91,8 +91,25 @@ public class RotateMatrix {
         System.out.println("\n");
     }
 
+    public static void rotateOptimized(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < (n + 1) / 2; i ++) {
+            System.out.println("i : "+i);
+            for (int j = 0; j < n / 2; j++) {
+                System.out.println("j : "+j);
+                int temp = matrix[n - 1 - j][i];
+                matrix[n - 1 - j][i] = matrix[n - 1 - i][n - j - 1];
+                matrix[n - 1 - i][n - j - 1] = matrix[j][n - 1 -i];
+                matrix[j][n - 1 - i] = matrix[i][j];
+                matrix[i][j] = temp;
+            }
+        }
+        printMatrix(matrix);
+    }
+
     public static void main(String[] args) {
         int[][] arr = {{5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
-        rotate(arr);
+        System.out.println(arr.length);
+        rotateOptimized(arr);
     }
 }
