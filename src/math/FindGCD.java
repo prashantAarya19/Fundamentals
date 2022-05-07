@@ -1,5 +1,8 @@
 package math;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FindGCD {
 
     // Euclid's gcd algorithm
