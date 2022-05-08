@@ -1,4 +1,4 @@
-package arrays.binarySearch;
+package arrays.binarySearch.problems;
 
 import java.util.ArrayList;
 import java.util.Arrays;

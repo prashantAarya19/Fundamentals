@@ -1,4 +1,4 @@
-package arrays.binarySearch;
+package arrays.binarySearch.problems;
 
 public class PeekIndexInMountain {
     public static int getPeekIndexInMountain(int[] arr) {
