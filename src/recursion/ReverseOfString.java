@@ -2,7 +2,7 @@ package recursion;
 
 public class ReverseOfString {
     public static void main(String[] args) {
-        String s = "hello";
+        String s = "abc";
        // System.out.println(reverse(s));
         System.out.println(reverse2(s, 0, s.length() - 1));
     }
@@ -18,6 +18,6 @@ public class ReverseOfString {
         if(s == e) {
             return str.charAt(s)+"";
         }
-        return str.charAt(e)+reverse2(str, ++s, --e)+str.charAt(s-1);
+        return str.charAt(e)+reverse2(str, s + 1, e - 1)+str.charAt(s);
     }
 }
