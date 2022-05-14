@@ -28,11 +28,11 @@ public class PowerOfNumber {
         int result = findPower2(i, n/2);
 
         if(n%2 == 0)
-            result = result*result;
+            return result*result;
         else
-            result = i*result*result;
+            return i*result*result;
 
-        return result;
+        //return result;
 
     }
 }
