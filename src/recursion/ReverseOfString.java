@@ -14,6 +14,7 @@ public class ReverseOfString {
        return str.charAt(str.length() - 1)+ reverse(str.substring(0, str.length() - 1));
     }
 
+    // TC: O(logN)
     private static String reverse2(String str, int s, int e) {
         if(s == e) {
             return str.charAt(s)+"";
