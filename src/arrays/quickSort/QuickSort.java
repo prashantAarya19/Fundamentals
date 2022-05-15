@@ -25,7 +25,7 @@ public class QuickSort {
         int pivotElm = arr[s];
         int count = 0;
         for (int i = s + 1; i <= e; i++) {
-            if (arr[i] < pivotElm) {
+            if (arr[i] <= pivotElm) {
                 ++count;
             }
         }
@@ -40,11 +40,11 @@ public class QuickSort {
         int j = e;
 
         while (i < pivotIndex && j > pivotIndex) {
-            while (arr[i] < arr[pivotIndex]) {
+            while (arr[i] <= arr[pivotIndex]) {
                 ++i;
             }
 
-            while (arr[j] >= arr[pivotIndex]) {
+            while (arr[j] > arr[pivotIndex]) {
                 --j;
             }
 
