@@ -31,8 +31,6 @@ public class BinaryTree {
             }
         }
         return rootNode;
-
-
     }
 
     public static Node<Integer> buildTree() {
