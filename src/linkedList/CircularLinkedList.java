@@ -1,7 +1,7 @@
 package linkedList;
 
 public class CircularLinkedList<T> {
-    Node<T> end;
+    public Node<T> end;
     public void addElement(T data) {
         Node<T> newNode = new Node<>(data);
         if (null == end) {
