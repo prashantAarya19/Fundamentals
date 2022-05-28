@@ -3,17 +3,25 @@ package linkedList.problems;
 import linkedList.Node;
 import linkedList.SinglyLinkedList;
 
+import java.util.HashMap;
+
 public class ReverseLlInPairs {
     public static void main(String[] args) {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
-        list.addAtFirst(5);
-        list.addAtFirst(4);
-        list.addAtFirst(3);
-        list.addAtFirst(2);
-        list.addAtFirst(1);
-        list.printLinkedList();
-        Node<Integer> reverse = reverse(list.head);
-        print(reverse);
+//        list.addAtFirst(5);
+//        list.addAtFirst(4);
+//        list.addAtFirst(3);
+//        list.addAtFirst(2);
+//        list.addAtFirst(1);
+//        list.printLinkedList();
+//        Node<Integer> reverse = reverse(list.head);
+//        print(reverse);
+        int h = 0;
+       // int i = (h = list.hashCode()) ^ (h >>> 16);
+
+        // 1705736037
+        System.out.println(list.hashCode()); // 1705736037
+
     }
     private static void print(Node<Integer> reverse) {
         Node<Integer> temp = reverse;
