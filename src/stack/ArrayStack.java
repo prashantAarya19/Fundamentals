@@ -2,38 +2,38 @@ package stack;
 
 public class ArrayStack {
     private final int[] stack;
-    private int peek;
+    private int top;
     private final int size;
 
     public ArrayStack(int size) {
         this.size = size;
         this.stack = new int[size];
-        this.peek = -1;
+        this.top = -1;
     }
 
     public void push(int data) {
-        if(peek >= size-1) {
+        if(top >= size-1) {
             throw new StackOverflowError("Stack is full");
         }
-        stack[++peek] = data;
+        stack[++top] = data;
     }
 
     public void pop() {
-        if(peek == -1) {
+        if(top == -1) {
             throw new NullPointerException("Stack is empty");
         }
-        stack[peek--] = 0;
+        stack[top--] = 0;
     }
 
     public int size() {
-        return peek;
+        return top;
     }
 
     public int peek() {
-        if(peek == -1) {
+        if(top == -1) {
             throw new NullPointerException("Stack is empty");
         }
-        return stack[peek];
+        return stack[top];
     }
 
     public static void main(String[] args) {
