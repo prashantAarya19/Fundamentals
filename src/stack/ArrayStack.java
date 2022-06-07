@@ -1,5 +1,8 @@
 package stack;
 
+import java.util.Arrays;
+import java.util.Stack;
+
 public class ArrayStack {
     private final int[] stack;
     private int top;
@@ -37,13 +40,14 @@ public class ArrayStack {
     }
 
     public static void main(String[] args) {
-        ArrayStack stack = new ArrayStack(3);
+//        ArrayStack stack = new ArrayStack(3);
 //        stack.push(1);
 //        stack.push(3);
 //        stack.push(4);
+//
+//        System.out.println(stack.peek());
+//        stack.pop();
+//        System.out.println(stack.peek());
 
-        System.out.println(stack.peek());
-        stack.pop();
-        System.out.println(stack.peek());
     }
 }
