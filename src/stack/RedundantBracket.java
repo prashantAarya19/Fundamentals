@@ -1,11 +1,16 @@
 package stack;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class RedundantBracket {
     public static void main(String[] args) {
-        String s = "(a+c*b)(a*b)";
-        System.out.println(isRedundant(s));
+//        String s = "(a+c*b)(a*b)";
+//        System.out.println(isRedundant(s));
+        ArrayList<Integer> a = new ArrayList<>(5);
+        a.add(1);
+        a.add(3, -1);
+        System.out.println(a);
     }
 
     private static boolean isRedundant(String s) {
