@@ -1,13 +1,22 @@
 package stack;
 
+import java.util.ArrayList;
 import java.util.Stack;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class LargestRectangularArea {
     public static void main(String[] args) {
 //        int[] arr = {2,1,5,6,2,3};
         int[] arr = {2,4};
-        int area = findLargestArea(arr);
-        System.out.println(area);
+//        int area = findLargestArea(arr);
+//        System.out.println(area);
+        AtomicInteger b = new AtomicInteger(3);
+        ArrayList<Integer> all = new ArrayList<>();
+        int c = 4;
+        Supplier<Integer> s = () -> c;
+        System.out.println(s.get());
     }
 
     private static int findLargestArea(int[] arr) {
