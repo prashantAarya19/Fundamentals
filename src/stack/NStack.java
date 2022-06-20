@@ -61,8 +61,11 @@ public class NStack {
            return -1;
        }
        int index = this.top[m - 1];
+       // 1. Update the top
        this.top[m - 1] = this.next[index];
+       // 2. update the next
        this.next[index] = this.emptySpace;
+       // 3. update the emptySpace
        emptySpace = index;
        return stack[index];
     }
