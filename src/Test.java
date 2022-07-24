@@ -15,14 +15,10 @@ public class Test{
 
 
     public static void main(String[] args) {
-//        String s = new String("abc");
-//        String b = new String("a");
-//        System.out.println(s.matches("^a"));
-//        System.out.println(s.intern() == b.intern());
-        List<Integer> list = new ArrayList<>();
-       // list.add(2);
-        list.sort((e1, e2) -> e1 - e2);
-        System.out.println(list.contains(0));
+        List<Integer> list = new ArrayList<>(10);
+
+        Collections.fill(list, 2);
+        System.out.println(list.size());
     }
 
 }

@@ -118,16 +118,50 @@ public class BinarySearchTree {
         }
     }
 
+    static Node<Integer> integerNode = null;
     public static void main(String[] args) {
         Node<Integer> binarySearchTree = takeInput(null);
-//        System.out.println("***Inorder traversal");
-//        inorderTraversal(binarySearchTree);
-        // 1, 3, 5, 6, 4
+        //System.out.println("***Inorder traversal");
+       // inorderTraversal(binarySearchTree);
+        // 5 1 8 6 10 -1
         System.out.println("\n***Level order traversal");
-        levelOrderTraversal(binarySearchTree);
-        deleteNode(binarySearchTree, 8);
-        System.out.println("\n***after deletion");
-        levelOrderTraversal(binarySearchTree);
+
+//        deleteNode(binarySearchTree, 8);
+//        System.out.println("\n***after deletion");
+//        levelOrderTraversal(binarySearchTree);
+        integerNode = null;
+        convertToLL(binarySearchTree);
+        binarySearchTree.left = null;
+        Node<Integer> someNode = integerNode;
+        someNode = llToBST(someNode, null);
+        inorderTraversal(someNode);
+    }
+
+    public static void convertToLL(Node<Integer> root) {
+        if(root == null)
+            return;
+        convertToLL(root.right);
+        root.right = integerNode;
+        if(integerNode != null)
+            integerNode.left = root;
+        integerNode = root;
+        convertToLL(root.left);
+    }
+
+    public static Node<Integer> llToBST(Node<Integer> head, Node<Integer> tail) {
+        Node<Integer> slow = head;
+        Node<Integer> fast = head;
+
+        if(head == tail)
+            return null;
+        while(fast != tail && fast.right != tail) {
+            slow = slow.right;
+            fast = fast.right.right;
+        }
+        Node<Integer> resultHead = new Node<>(slow.data);
+        resultHead.left = llToBST(head, slow);
+        resultHead.right = llToBST(slow.right, tail);
+        return resultHead;
     }
 
 }
