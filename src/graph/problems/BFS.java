@@ -38,6 +38,8 @@ public class BFS {
         while(!q.isEmpty()) {
             int front = q.remove();
             bfsList.add(front);
+            if(adjList.get(front) == null)
+                adjList.put(front, new ArrayList<>());
             for(int elm : adjList.get(front)) {
                 if(visitedTrack.get(front) == null) {
                     q.add(elm);
@@ -45,8 +47,8 @@ public class BFS {
                 }
             }
         }
-
     }
+
     public static void main(String[] args) {
 //        int[][] edges = {{0, 1},{0, 3},{1, 2},{2, 3}}; int vertx = 4;
         int[][] edges = {{0, 1}}; int vertx = 2;
