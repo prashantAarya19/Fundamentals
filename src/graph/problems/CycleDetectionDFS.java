@@ -1,14 +1,12 @@
 package graph.problems;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CycleDetectionDFS {
     public static void main(String[] args) {
         int[][] edges = {{3, 2}, {1, 2}, {2, 3}};
-        System.out.println(cycleDetection(edges, 3, 3));
+       // System.out.println(cycleDetection(edges, 3, 3));
+        LinkedList<Integer> ll = new LinkedList<>();
     }
     public static String cycleDetection(int[][] edges, int n, int m) {
         Map<Integer, List<Integer>> adjList = new HashMap<>();
