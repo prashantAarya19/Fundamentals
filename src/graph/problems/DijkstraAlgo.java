@@ -116,6 +116,5 @@ public class DijkstraAlgo {
         int source = 0;
         ArrayList<Integer> dijkstra = dijkstra(vec, vertices, edges, source);
         System.out.println(dijkstra);
-
     }
 }
