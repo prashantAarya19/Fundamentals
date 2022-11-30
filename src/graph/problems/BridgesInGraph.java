@@ -64,4 +64,9 @@ public class BridgesInGraph {
             adjList.get(v).add(u);
         }
     }
+
+    public static void main(String[] args) {
+        int[][] edges = {{0, 1}, {0,2}, {1,2}, {0 ,3}, {3, 4}};
+        System.out.println(findBridges(edges, 5, 5));
+    }
 }
