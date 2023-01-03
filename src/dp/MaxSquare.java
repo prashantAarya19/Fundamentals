@@ -20,18 +20,18 @@ public class MaxSquare {
         max = 0;
         int i = 0;
         int j = 0;
-        solve(i, j, mat);
+        solveRecursive(i, j, mat);
         return max;
 
     }
 
-    static int solve(int i, int j, int[][] mat) {
+    static int solveRecursive(int i, int j, int[][] mat) {
         if(i >= mat.length || j >= mat[0].length)
             return 0;
 
-        int right = solve(i, j+1, mat);
-        int diagonal = solve(i + 1, j + 1, mat);
-        int down = solve(i + 1, j, mat);
+        int right = solveRecursive(i, j+1, mat);
+        int diagonal = solveRecursive(i + 1, j + 1, mat);
+        int down = solveRecursive(i + 1, j, mat);
 
         if(mat[i][j] == 1) {
             int minSq = 1 + Integer.min(right, Integer.min(diagonal, down));
@@ -78,6 +78,28 @@ public class MaxSquare {
                     dp[i][j] = 0;
                 }
             }
+        }
+        return max;
+    }
+
+    static int solveTab2(int n, int m, int[][] mat) {
+        int[] next = new int[m + 1];
+
+        for(int i = n - 1; i >= 0; i--) {
+            int[] current = new int[m + 1];
+            for(int j = m - 1; j >= 0; j--) {
+                int right = current[j + 1];
+                int diagonal = next[j + 1];
+                int down = next[j];
+
+                if(mat[i][j] == 1) {
+                    current[j] = 1 + Integer.min(right, Integer.min(diagonal, down));
+                    max = Integer.max(max, current[j]);
+                } else {
+                    current[j] = 0;
+                }
+            }
+            next = current;
         }
         return max;
     }
