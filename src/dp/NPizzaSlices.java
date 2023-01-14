@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class NPizzaSlices {
     public static void main(String[] args) {
 //        int[] slices = new int[]{1,2,3,4,5,6};
-        int[] slices = new int[]{8,9,8,6,1,1};
-//        int[] slices = new int[]{4,1,2,5,8,3,1,9,7};
+//        int[] slices = new int[]{8,9,8,6,1,1};
+        int[] slices = new int[]{4,1,2,5,8,3,1,9,7};
         System.out.println(maxSizeSlices(slices));
     }
 
@@ -61,5 +61,24 @@ public class NPizzaSlices {
         return dp[start][k];
     }
 
+    private static int solveTab2(int[] slices, int start, int end, int k) {
+        int[] next1 = new int[end + 3];
+        int[] next2 = new int[end + 3];
+
+        for(int i = end; i >= start; i--) {
+            int[] current = new int[end + 3];
+            for(int j = 1; j <= k; j++) {
+
+                int include = slices[i] + next2[j - 1];
+                int exclude = next1[j];
+
+                current[j]= Integer.max(include, exclude);
+            }
+            next1 = next2;
+            next2 = current;
+        }
+
+        return next2[start];
+    }
 
 }
