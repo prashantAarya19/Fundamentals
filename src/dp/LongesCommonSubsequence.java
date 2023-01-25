@@ -29,4 +29,19 @@ public class LongesCommonSubsequence {
             return dp[index1][index2] = Math.max(solveTab(text1, text2, index1 + 1, index2, dp),
                     solveTab(text1, text2, index1, index2 + 1, dp));
     }
+
+    private int solve(String text1, String text2) {
+        int[][] dp = new int[text1.length() + 1][text2.length() + 1];
+
+        for(int index1 = text1.length() - 1; index1 >= 0; index1--) {
+            for(int index2 = text2.length() - 1; index2 >= 0; index2--) {
+                if(text1.charAt(index1) == text2.charAt(index2))
+                    dp[index1][index2] = 1 + dp[index1 + 1][index2 + 1];
+                else
+                    dp[index1][index2] = Math.max(dp[index1 + 1][index2],
+                            dp[index1][index2 + 1]);
+            }
+        }
+        return dp[0][0];
+    }
 }
