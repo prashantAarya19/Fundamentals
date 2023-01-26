@@ -15,10 +15,7 @@ public class Test{
 
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>(10);
 
-        Collections.fill(list, 2);
-        System.out.println(list.size());
     }
 
 }
