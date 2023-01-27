@@ -35,14 +35,12 @@ public class Sort012 {
                 arr[s] = temp;
                 mid++;
                 s++;
-            }
-            if(arr[mid] == 2) {
+            }else if(arr[mid] == 2) {
                 int temp = arr[mid];
                 arr[mid] = arr[e];
                 arr[e] = temp;
                 e--;
-            }
-            if(arr[mid] == 1) {
+            }else if(arr[mid] == 1) {
                 mid++;
             }
         }
