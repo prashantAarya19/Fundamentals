@@ -9,7 +9,7 @@ public class MedianOfSortedArray {
         int n1 = n, n2 = m;
         int s = 0, e = n1;
 
-        while(s < e) {
+        while(s <= e) {
             int cut1 = (e + s)/2;
             int cut2 = ((n1 + n2 + 1)/2) - cut1;
 
