@@ -46,4 +46,9 @@ public class Utility {
         }
         return  s;
     }
+
+    public static void main(String[] args) {
+        int[] arr = {5, 7, 8, 10};
+        System.out.println(upperBound(arr, 0, 4, 11));
+    }
 }

@@ -15,7 +15,15 @@ public class Test{
 
 
     public static void main(String[] args) {
+        Queue<Integer> q = new PriorityQueue<>(5);
+        q.add(5);
+        q.add(3);
+        q.add(1);
+        q.add(10);
+        q.add(11);
 
+        while(!q.isEmpty())
+            System.out.println(q.remove());
     }
 
 }
