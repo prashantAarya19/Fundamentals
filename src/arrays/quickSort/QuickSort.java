@@ -4,13 +4,14 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {9, 4, 11, 3, 6, 45, 6, 6, 84, 33};
+//        int[] arr = {9, 4, 11, 3, 6, 45, 6, 6, 84, 33};
+        int[] arr = {4, 1, 3, 9, 7};
         quickSort(arr, 0, arr.length - 1);
         Arrays.stream(arr).forEach(e -> System.out.print(e + " "));
     }
 
     private static void quickSort(int[] arr, int s, int e) {
-        if (e - s <= 1) {
+        if (e - s < 1) {
             return;
         }
 

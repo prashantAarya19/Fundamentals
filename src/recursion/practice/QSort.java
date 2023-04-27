@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class QSort {
     public static void main(String[] args) {
-        int[] arr = {3, 4, 2, 54, 23, 1, 99, 22};
+//        int[] arr = {3, 4, 2, 54, 23, 1, 99, 22};
+        int[] arr = {4, 1, 3, 9, 7};
         Arrays.stream(arr).forEach(e -> System.out.print(e +" "));
         System.out.println();
         quickSort(arr, 0, arr.length - 1);
@@ -12,7 +13,7 @@ public class QSort {
     }
 
     private static void quickSort(int[] arr, int low, int high) {
-        if(high - low <= 1)
+        if(high - low < 1)
             return;
 
         int pivotIndex = findPivot(arr, low, high); // O(n)
