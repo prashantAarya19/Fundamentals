@@ -40,7 +40,7 @@ public class MSort {
         return tempArr;
     }
 
-    // It's not in place algorithm
+    // It's in place algorithm
     public static void sortMergeInPlace(int[] arr, int s, int e) {
         if(e - s == 1) {
             return;

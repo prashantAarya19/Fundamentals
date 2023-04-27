@@ -1,16 +1,12 @@
 package arrays.quickSort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class QuickSort {
     public static void main(String[] args) {
         int[] arr = {9, 4, 11, 3, 6, 45, 6, 6, 84, 33};
         quickSort(arr, 0, arr.length - 1);
         Arrays.stream(arr).forEach(e -> System.out.print(e + " "));
-        List<Integer> ar = new ArrayList<>();;
-        ar.clear();
     }
 
     private static void quickSort(int[] arr, int s, int e) {
