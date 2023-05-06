@@ -12,6 +12,8 @@ public class SudokuSolver {
                 return false;
 
             // check 3 x 3 matrix
+            // Row = 3 * (row / 3) + i / 3;
+            // Col = 3 * (col / 3) + i % 3;
             if(board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == k)
                 return false;
         }
