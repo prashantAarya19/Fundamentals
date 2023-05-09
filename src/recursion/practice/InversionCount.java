@@ -14,7 +14,7 @@ public class InversionCount {
 
     static long solve(long[] arr, int left, int right) {
         long count = 0;
-        if(right - left != 1) {
+        if(right - left != 1) { //***
             int mid = left + (right - left) / 2;
             count += solve(arr, left, mid);
             count += solve(arr, mid, right);
@@ -36,7 +36,7 @@ public class InversionCount {
                 temp[counter++] = arr[i1++];
             else {
                 temp[counter++] = arr[i2++];
-                count += (mid - i1);
+                count += (mid - i1); //****
             }
         }
 
