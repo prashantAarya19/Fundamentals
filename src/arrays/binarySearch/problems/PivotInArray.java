@@ -23,6 +23,7 @@ public class PivotInArray {
     public static void main(String[] args) {
        // int[] arr = {4, 6, 8, 9, 2};
        // int[] arr = {8, 9, 10, 11, 2, 3, 5, 6};
+//        int[] arr = {4,5,6,7,0,1,2};
         int[] arr = {6, 7, 9, 1, 2, 3};
        // int[] arr = {2, 3, 5, 8};
         System.out.println(pivotInArray(arr, 4)); // 3
