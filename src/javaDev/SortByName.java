@@ -5,7 +5,12 @@ import javaDev.model.Employee;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
 
 public class SortByName {
     public static void main(String[] args) {
@@ -25,7 +30,11 @@ public class SortByName {
         //list.sort(Comparator.comparing(Employee::getName));
         // reverse sort by name
         lf.sort((v1, v2) -> v2.getName().compareTo(v1.getName()));
-
         System.out.println(list);
+        List<String> l = List.of("apple", "apple", "orange", "banana", "orange", "apple", "apple", "apple");
+        Map<String, Integer> collect = l.stream().collect(groupingBy(e -> e, mapping(e -> 1, Collectors.summingInt(e -> 1))));
+        System.out.println(collect);
+        // convert collect to list by key
+
     }
 }
