@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllPermutationExtraSpace {
+
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         solve(nums, result, new ArrayList<>(), new int[nums.length]);

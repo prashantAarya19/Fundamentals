@@ -6,13 +6,7 @@ public class Test extends RuntimeException{
     public static void main(String[] args) {
         int[] arr = {2, 4, 5, 6, 7};
         System.out.println(getUpperBound(arr, 8));
-        System.out.println(getLowerBound(arr, 0));
-        Map<StringBuilder, String> map = new HashMap<>();
-        StringBuilder sb = new StringBuilder("hi");
-        map.put(sb, "hello");
-        System.out.println(sb.hashCode());
-        sb.append("hi");
-        System.out.println(sb.hashCode());
+        System.out.println(getLowerBound(arr, 3));
     }
 
     @Override
