@@ -21,7 +21,7 @@ public class CutRodSegment {
         int case2 = solveRecursive(n - y, x, y, z) + 1;
         int case3 = solveRecursive(n - z, x, y, z) + 1;
 
-        return Integer.max(case1, Integer.max(case1, case2));
+        return Integer.max(case1, Integer.max(case1, case3));
     }
 
     public static int solveDP(int n, int x, int y, int z, int[] dp) {
