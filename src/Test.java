@@ -1,54 +1,40 @@
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-class Node {
-    Node left, right;
-    int data;
-
-    Node(int d) {
-        data = d;
-        left = right = null;
-    }
-}
+import java.util.Arrays;
 
 public class Test extends RuntimeException {
-    Node head = null;
-    Node tail = null;
 
-    void Nodeadd(int val) {
-        Node newnode = new Node(val);
-
-        if (tail == null) {
-            tail = head = newnode;
-            return;
-        }
-
-        newnode.left = tail;
-        tail.right = newnode;
-        tail = newnode;
-    }
-
-    Node bToDLL(Node root) {
-        if (root == null) return null;
-
-        bToDLL(root.left);
-        Nodeadd(root.data);
-        bToDLL(root.right);
-
-        return head;
-    }
 
     public static void main(String[] args) {
-        List<List<Integer>> list = new ArrayList<>();
-        List<Integer> list1 = Arrays.asList(1, 2, 3);
-        List<Integer> list2 = Arrays.asList(5, 6, 7);
-        list.add(list1);
-        list.add(list2);
-        // 1 + 9 + 25 + 49 = 70
-        // [1, 3, 5, 7]
-//        Integer sum = list.stream().flatMap(e -> e.stream().filter(f -> f % 2 != 0).map(g -> g * g)).reduce(Integer::sum).orElse(0);
-        List<Integer> flat = list.stream().flatMap(e -> e.stream()).collect(Collectors.toList());
-        System.out.println(flat);
+        int[] nums = {3, 4, -1, 1};
+        int n = nums.length;
+        arrange(nums, n);
+        Arrays.stream(nums).forEach(e -> System.out.print(e + " "));
+        System.out.println();
+        char[] arr1 = giveCharArr("daba");
+        char[] arr2 = giveCharArr("adba");
+        printArray(arr1);
+        printArray(arr2);
+
+
+    }
+    private static void printArray(char[] arr) {
+        for(char c : arr) System.out.print(c);
+        System.out.println();
+    }
+    private static char[] giveCharArr(String str) {
+        char[] arr = new char[5];
+        for(char c: str.toCharArray())
+            arr[c - 'a']++;
+        return arr;
+    }
+
+    private static void arrange(int[] nums, int n) {
+        for(int i = 0; i < n; i++) {
+            if(nums[i] <= 0 || nums[i] >= n) continue;
+            int temp = nums[nums[i] - 1]; // 1
+            nums[nums[i] - 1] = nums[i]; // -1
+            nums[i] = temp;
+            //Arrays.stream(nums).forEach(e -> System.out.print(e + " "));
+            System.out.println();
+        }
     }
 }

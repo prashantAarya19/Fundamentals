@@ -1,5 +1,8 @@
 package love50.string;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KnuthMorrisAlgo {
     public static void main(String[] args) {
         String s = "abab";
@@ -8,33 +11,57 @@ public class KnuthMorrisAlgo {
         ab ab
         aba bab
          */
-        String s1 = printAllSubsequence(s, 0, "", "");
-        System.out.println(s1);
+        String pattern = "ab";
+        List<Integer> search = search(s, pattern);
+        System.out.println(search);
 //        System.out.println(solve(s, 0));
     }
 
-    private static String solve(String s, int start) {
-        if(start == s.length() - 1)
-            return "";
-        String result = "";
-        String prefix = s.charAt(start) + solve(s, start + 1);
-        String suffix = "";
-        suffix = s.charAt(start + 1) + suffix;
+    static List<Integer> search(String pat, String s)
+    {
+        int[] lps = getLps(pat);
+        int sourceInd = 0, patInd = 0;
+        List<Integer> list = new ArrayList<>();
+        while(sourceInd < s.length() && patInd < pat.length()) {
+            if(s.charAt(sourceInd) == pat.charAt(patInd)) {
+                sourceInd++;
+                patInd++;
+            } else {
+                if(patInd != 0) {
+                    patInd = lps[patInd - 1];
+                } else {
+                    sourceInd++;
+                }
+            }
 
-        if(prefix.equals(suffix))
-            result = prefix;
-        return result;
+            if(patInd == pat.length()){
+                list.add(sourceInd - patInd + 1);
+                patInd = lps[patInd - 1];
+            }
+        }
+
+        if(list.isEmpty())
+            list.add(-1);
+        return list;
     }
 
-    private static String printAllSubsequence(String s, int start, String suffix, String prefix) {
-        if(start == s.length())
-            return "";
+    private static int[] getLps(String pat) {
+        int[] lps = new int[pat.length()];
 
-//        System.out.println("suffix : " + suffix);
-//        System.out.println("prefix : " + prefix);
-          String result = "";
-          if(!prefix.equals("") && prefix.equals(suffix))
-              result = printAllSubsequence(s, start + 1, suffix + s.charAt(start), s.charAt(s.length() - 1 - start) + prefix);
-          return result;
+        int left = 0, right = 1;
+
+        while(right < pat.length()) {
+            if(pat.charAt(left) == pat.charAt(right)) {
+                lps[right++] = ++left;
+            } else {
+                if(left != 0) {
+                    left = lps[left - 1];
+                } else {
+                    right++;
+                }
+            }
+
+        }
+        return lps;
     }
 }

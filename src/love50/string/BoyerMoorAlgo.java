@@ -43,8 +43,11 @@ public class BoyerMoorAlgo {
     }
 
     public static void main(String[] args) {
-        char[] text = "aacabc".toCharArray();
-        char[] pattern = "ab".toCharArray();
+//        char[] text = "aylnlfdxfi".toCharArray();
+//        char[] pattern = "dxfi".toCharArray();
+
+        char[] text = "hqg".toCharArray();
+        char[] pattern = "q".toCharArray();
         System.out.println(findPattern(text, pattern));
         /*
         adcabc

@@ -1,14 +1,17 @@
 package love50.string;
 
+import util.Utility;
+
 public class Lps {
     public static void main(String[] args) {
-        String s = "abc";
-
+        String s = "aaaabbaa";
+        String s2 = "aabbaaaa";
         //
 //        System.out.println(s.substring(0, s.length() - 1));
-        System.out.println(s.isBlank());
+        Utility.printArray(lps(s));
+        Utility.printArray(lps(s2));
     }
-    private static int lps(String s) {
+    private static int[] lps(String s) {
         int[] arr = new int[s.length()];
 
         int i1 = 0;
@@ -27,6 +30,6 @@ public class Lps {
                 }
             }
         }
-        return arr[i2 - 1];
+        return arr;
     }
 }

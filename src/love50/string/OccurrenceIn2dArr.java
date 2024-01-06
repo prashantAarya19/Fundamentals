@@ -20,7 +20,6 @@ public class OccurrenceIn2dArr {
                 {'A','B','C','B','B','B'},
                 {'M','C','I','G','A','M'}
         };
-
         String needle = "MAGIC";
         int needleLength = needle.length();
         int count = 0;

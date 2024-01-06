@@ -73,7 +73,8 @@ public class NStack {
         NStack stack = new NStack(1, 1);
         stack.push(2, 1);
         stack.push(3, 1);
-        System.out.println(stack.stack[1]);
-        System.out.println(stack.push(5, 1));
+//        System.out.println(stack.stack[1]);
+//        System.out.println(stack.push(5, 1));
+
     }
 }

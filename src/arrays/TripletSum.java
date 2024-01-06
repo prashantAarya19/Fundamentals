@@ -1,16 +1,16 @@
 package arrays;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class TripletSum {
     public static void main(String[] args) {
-        int[] arr = new int[5];
+        int[] arr = {4,3,2,3,5,2,1};
+        int n = 7;
+        System.out.println(1<<arr.length);
 
     }
 
-    private static boolean isTriplateSum(int[] nums, int k) {
+    private static boolean isTriplateSum(Integer[] nums, int k) {
         Arrays.sort(nums);
         int mid = 0, end = 0;
         for(int s = 0; s < nums.length; s++) {
